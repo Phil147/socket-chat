@@ -1,3 +1,4 @@
+import { ServerMessage } from './../server-model';
 import { AuthService } from './../login/auth.service';
 import {
   Component,
@@ -18,6 +19,11 @@ import { ServerCommand } from '../server-model';
 import { Widget } from '../widgets/widget';
 import { WidgetService } from '../widgets/widget.service';
 
+type Message = {
+  user: string;
+  text: string;
+}
+
 @Component({
   selector: 'app-chat',
   templateUrl: './chat.component.html',
@@ -35,7 +41,7 @@ export class ChatComponent {
   socket: Socket;
   currWidgetRef: ComponentRef<Widget> | null = null;
 
-  messages: { user: string; text: string; }[] = [];
+  messages: Message[] = [];
   user;
 
   constructor(
@@ -73,7 +79,6 @@ export class ChatComponent {
       // we parse the user and text out of this message.
       const parsed = (data.message as string).match(/Hey (.*),.*\'(.*)\'/);
       const [, user, text] = parsed || [];
-      console.log(user, text)
       this.messages.push({ user, text });
     });
 
@@ -130,5 +135,9 @@ export class ChatComponent {
     }
     // defer that to next change detection that the widget is fully rendered to scroll it into view
     setTimeout(() => this.currWidgetRef?.location.nativeElement.scrollIntoView());
+  }
+
+  isMessageFromUser(message: Message) {
+    return message.user === this.user.value;
   }
 }

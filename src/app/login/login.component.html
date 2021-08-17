@@ -1,14 +1,16 @@
 <div class="login-container">
   <p class="login-headline">Start chatting with awesome people now</p>
-  <div class="login-form">
-    <mat-form-field appearance="fill" color="accent">
-      <mat-label>Username</mat-label>
-      <input matInput type="text" [formControl]="username">
-    </mat-form-field>
-    <mat-form-field appearance="fill" color="accent">
-      <mat-label>Password</mat-label>
-      <input matInput type="password">
-    </mat-form-field>
-  </div>
-  <button class="login-button" type="button" mat-flat-button color="primary" (click)="login()">Login</button>
+  <form ngForm (ngSubmit)="login()">
+    <div class="login-form">
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>Username</mat-label>
+        <input matInput type="text" [formControl]="username">
+      </mat-form-field>
+      <mat-form-field appearance="fill" color="accent">
+        <mat-label>Password</mat-label>
+        <input matInput type="password">
+      </mat-form-field>
+    </div>
+    <button class="login-button" type="submit" mat-flat-button color="primary">Login</button>
+  </form>
 </div>

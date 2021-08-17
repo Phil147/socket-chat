@@ -18,6 +18,19 @@
   overflow: auto;
   background-color: #EEEEEE;
   padding: 16px;
+  font-size: 1.25em;
+}
+
+.message {
+  margin-bottom: 4px;
+
+  .user {
+    margin-right: 8px;
+  }
+
+  &.is-user {
+    font-style: italic;
+  }
 }
 
 .message-input {

@@ -9,8 +9,8 @@
   <div class="messages" #chatPanel>
     <p class="greeting">Hello {{ user | async }}! You can send messages to others or roll the dice to use some funky widgets. Have fun :)</p>
     <ng-template #widgetOutletFallback></ng-template>
-    <div *ngFor="let message of messages" class="message" #msg>
-      &lt;{{message.user}}&gt; {{message.text}}
+    <div *ngFor="let message of messages" class="message" #msg [class.is-user]="isMessageFromUser(message)">
+      <span class="user">&lt;{{message.user}}&gt;</span> <span class="message-text">{{message.text}}</span>
     </div>
   </div>
   <div class="chat-footer">
