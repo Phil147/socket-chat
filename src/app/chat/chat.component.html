@@ -1,0 +1,24 @@
+<div class="chat">
+  <div class="chat-header">
+    <p>Chat with awesome people</p>
+    <button mat-raised-button type="button" color="accent"
+      (click)="sendCommand()">
+      <mat-icon aria-hidden="true">casino</mat-icon> Roll the dice
+    </button>
+  </div>
+  <div class="messages" #chatPanel>
+    <p class="greeting">Hello {{ user | async }}! You can send messages to others or roll the dice to use some funky widgets. Have fun :)</p>
+    <ng-template #widgetOutletFallback></ng-template>
+    <div *ngFor="let message of messages" class="message" #msg>
+      &lt;{{message.user}}&gt; {{message.text}}
+    </div>
+  </div>
+  <div class="chat-footer">
+    <input mat-input class="message-input" type="text"
+      placeholder="Write your message ..." #inp
+      (keydown.enter)="sendMessage(inp.value)"> <button mat-button class="send-button"
+      color="primary" type="button" (click)="sendMessage(inp.value)">
+      <mat-icon aria-hidden="true">send</mat-icon> Send
+    </button>
+  </div>
+</div>

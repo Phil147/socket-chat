@@ -1,2 +1,2 @@
 <p>Do you want to close the conversation?</p>
-<button type="button" *ngFor="let label of labels" (click)="complete(label)">{{ label }}</button>
+<button type="button" mat-stroked-button color="primary" *ngFor="let label of labels" (click)="complete(label)">{{ label }}</button>

@@ -23,7 +23,7 @@ export class RateComponent implements Widget {
   }
 
   complete(rating: number) {
-    this.widgetService.completeWidget(rating.toString());
+    this.widgetService.completeWidget(`${rating.toString()} stars`, 'rate');
   }
 
 }

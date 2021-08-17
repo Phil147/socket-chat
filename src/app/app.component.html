@@ -1,17 +1,1 @@
-<button (click)="sendMessage('test')">Send message</button>
-<button (click)="sendCommand()">Send command</button>
-
-<div class="chat">
-  <div class="messages" #chatPanel>
-    <ng-template #widgetOutletFallback></ng-template>
-    <div *ngFor="let message of messages" class="message" #msg>
-      &lt;{{message.user}}&gt; {{message.text}}
-    </div>
-  </div>
-  <div class="message-panel">
-    <input class="message-input" type="text"
-      placeholder="Write your message ..." #inp
-      (keydown.enter)="sendMessage(inp.value)"> <button type="button"
-      (click)="sendMessage(inp.value)">Send</button>
-  </div>
-</div>
+<router-outlet></router-outlet>

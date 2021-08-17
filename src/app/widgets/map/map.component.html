@@ -1,2 +1,4 @@
-<p>Here is the location of your appointment:</p>
-<p>Lat {{data.lat}} Lon {{data.lng}}</p>
+<p>Here is a nice place to meet:</p>
+<google-map [options]="options">
+  <map-marker [position]="marker"></map-marker>
+</google-map>

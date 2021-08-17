@@ -1,0 +1,76 @@
+:host { 
+  background-color: #EEEEEE;
+  display: block;
+  width: 100vw;
+  height: 100vh;
+}
+
+.chat {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  margin: auto;
+}
+
+.messages {
+  flex: 1;
+  overflow: auto;
+  background-color: #EEEEEE;
+  padding: 16px;
+}
+
+.message-input {
+  height: 36px;
+  flex: 1;
+  margin-right: 8px;
+  font-size: 16px;
+  border: none;
+  padding: 0 16px;
+  border-radius: 16px;
+}
+
+.chat-footer {
+  display: flex;
+  padding: 0 16px;
+  background-color: #3F51B5;
+  height: 80px;
+  align-items: center;
+}
+
+.send-button {
+  color: #fff;
+  font-size: 16px;
+  line-height: 24px;
+
+  mat-icon {
+    margin-right: 4px;
+  }
+}
+
+.chat-header {
+  display: flex;
+  align-items: center;
+  background-color: #303F9F;
+  color: #fff;
+  height: 56px;
+  padding: 0 16px;
+
+  button {
+    margin-left: auto;
+
+    ::ng-deep .mat-button-wrapper {
+      display: flex;
+      align-items: center;
+    }
+
+    mat-icon {
+      margin-right: 4px;
+    }
+  }
+
+  p {
+    margin: 0;
+    font-size: 20px;
+  }
+}

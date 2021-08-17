@@ -14,7 +14,7 @@ export class CompleteComponent implements Widget {
   constructor(private widgetService: WidgetService) {}
 
   complete(selection: string) {
-    this.widgetService.completeWidget(selection);
+    this.widgetService.completeWidget(selection, 'complete');
   }
 
   setData(command: ServerCompleteCommand) {

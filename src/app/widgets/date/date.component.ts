@@ -14,7 +14,7 @@ export class DateComponent implements Widget {
   constructor(private widgetService: WidgetService) {}
 
   complete(day: string) {
-    this.widgetService.completeWidget(day);
+    this.widgetService.completeWidget(day, 'date');
   }
 
   setData(command: ServerDateCommand) {

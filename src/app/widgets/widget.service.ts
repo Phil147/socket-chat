@@ -21,13 +21,19 @@ export class WidgetService {
   readonly widgetCompleted$ = new Subject<string>();
   alreadyShown = [];
   currentWidget: any;
+
+  private widgetState = new Map(Object.keys(widgets).map(key => [key, { completed: false }]))
   
-  
-  completeWidget(data: string) {
+  completeWidget(data: string, type: WidgetKey) {
     this.widgetCompleted$.next(data);
+    this.widgetState.set(type, { completed: true })
   }
 
   getWidget(name: WidgetKey) {
     return widgets[name];
+  }
+
+  hasCompleted(type: WidgetKey) {
+    return this.widgetState.get(type)?.completed || false;
   }
 }

@@ -1,2 +1,4 @@
 <p>Please rate your experience</p>
-<button *ngFor="let i of labels" (click)="complete(i)">{{i}}</button>
+<button *ngFor="let i of labels" mat-icon-button color="primary" (click)="complete(i)">
+  <mat-icon [attr.aria-label]="i + ' stars'">star_border</mat-icon>
+</button>

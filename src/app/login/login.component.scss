@@ -1,0 +1,35 @@
+:host {
+  display: block;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+
+.login-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  min-width: 40vw;
+}
+
+.login-headline {
+  font-size: 40px;
+  margin-bottom: 56px;
+  line-height: normal;
+}
+
+.login-form {
+  display: flex;
+  flex-direction: column;
+  width: 75%;
+  margin: auto;
+  font-size: 20px;
+}
+
+.login-button {
+  width: 50%;
+  height: 48px;
+  font-size: 1.25em;
+}
