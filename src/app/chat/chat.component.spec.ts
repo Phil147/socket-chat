@@ -65,17 +65,22 @@ describe('ChatComponent', () => {
     expect(fixture.nativeElement.querySelector('app-complete')).toBeTruthy();
   });
 
-  it('should hide when widget completes and print message', inject([WidgetService], (widgetService: WidgetService) => {
-    widgetService.widgetCompleted$.subscribe(message => expect(message).toBe('Wednesday'))
-    component.addWidget({
-      type: 'date', data: '2021-07-28T15:22:25.030Z'
-    })
-    fixture.detectChanges();
-    const widgetElement = fixture.nativeElement.querySelector('app-date');
-    const buttons = widgetElement.querySelectorAll('button');
-    buttons.item(0).click();
-    fixture.detectChanges();
-    expect(fixture.nativeElement.querySelector('app-date')).toBeFalsy();
-  }));
+  it('should hide when widget completes and print message', (done) => {
+    inject([WidgetService], (widgetService: WidgetService) => {
+      widgetService.widgetCompleted$.subscribe(message => {
+        expect(message).toBe('Wednesday');
+        done();
+      });
+      component.addWidget({
+        type: 'date', data: '2021-07-28T15:22:25.030Z'
+      })
+      fixture.detectChanges();
+      const widgetElement = fixture.nativeElement.querySelector('app-date');
+      const buttons = widgetElement.querySelectorAll('button');
+      buttons.item(0).click();
+      fixture.detectChanges();
+      expect(fixture.nativeElement.querySelector('app-date')).toBeFalsy();
+    })();
+  });
   
 });
