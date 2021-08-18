@@ -1,4 +1,3 @@
-import { ServerMessage } from './../server-model';
 import { AuthService } from './../login/auth.service';
 import {
   Component,
@@ -18,6 +17,7 @@ import { takeUntil } from 'rxjs/operators';
 import { ServerCommand } from '../server-model';
 import { Widget } from '../widgets/widget';
 import { WidgetService } from '../widgets/widget.service';
+
 
 type Message = {
   user: string;

@@ -16,11 +16,11 @@ export type ServerRateCommand = {
 }
 
 export type ServerMapCommand = {
-  type: 'rate';
+  type: 'map';
   data: { lat: number; lng: number };
 }
 
 export type ServerCompleteCommand = {
-  type: 'rate';
+  type: 'complete';
   data: [string, string];
 }

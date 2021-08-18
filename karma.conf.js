@@ -32,13 +32,22 @@ module.exports = function (config) {
         { type: 'text-summary' }
       ]
     },
+    files: [
+      {
+        pattern: 'https://maps.googleapis.com/maps/api/js?key=AIzaSyDLE1BH3vkEeC65Owp2f1aYcJZEporWo5E',
+        type: 'js',
+        included: true
+      }
+      
+    ],
     reporters: ['progress', 'kjhtml'],
     port: 9876,
     colors: true,
     logLevel: config.LOG_INFO,
     autoWatch: true,
-    browsers: ['Chrome'],
+    browsers: ['ChromeHeadless'],
     singleRun: false,
-    restartOnFileChange: true
+    restartOnFileChange: true,
+    crossOriginAttribute: false
   });
 };

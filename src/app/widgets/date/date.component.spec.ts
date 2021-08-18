@@ -22,4 +22,19 @@ describe('DateComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show correct weekdays', () => {
+    component.setData({
+      type: 'date', data: '2021-07-28T15:22:25.030Z'
+    });
+    fixture.detectChanges();
+    const expected = ['Wednesday', 'Thursday', 'Friday', 'Monday', 'Tuesday'];
+    const buttons = fixture.nativeElement.querySelectorAll('button');
+    expect(component.days).toEqual(expected);
+    expect(buttons.length).toBe(5);
+    for (let i = 0; i < expected.length; i++) {
+      expect(buttons.item(i).textContent.trim()).toBe(expected[i]);
+    }
+  });
+  
 });

@@ -22,4 +22,14 @@ describe('CompleteComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
+
+  it('should show correct labels', () => {
+    component.setData({
+      type: 'complete', data: ['Yes', 'No']
+    });
+    fixture.detectChanges();
+    const buttons = fixture.nativeElement.querySelectorAll('button');
+    expect(buttons.item(0).textContent.trim()).toBe('Yes');
+    expect(buttons.item(1).textContent.trim()).toBe('No');
+  })
 });
